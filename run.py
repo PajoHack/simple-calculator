@@ -30,11 +30,29 @@ def check_if_user_is_finished():
     return ok_to_finish
 
 
+def get_operation_choice():
+    input_ok = False
+    while not input_ok:
+        print('Menu options are:')
+        print('\t1. Add')
+        print('\t2. Subtract')
+        print('\t3. Multiply')
+        print('\t4. Divide')
+        print('------------------')
+        user_selection = input('Please make a selection: ')
+        if user_selection in ('1', '2', '3', '4'):
+            input_ok = True
+        else:
+            print('Invalid Input (Musr be 1 - 4)')
+    print('------------------')
+    return user_selection
+
+
 finished = False
 
 while not finished:
     result = 0
-    # get operation from user
+    menu_choice = get_operation_choice()
     # get the numbers from user
     # select the operation
     print('Result', result)
