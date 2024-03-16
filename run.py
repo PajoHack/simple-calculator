@@ -75,5 +75,6 @@ while not finished:
     print('Result:', result)
     print('====================')
     finished = check_if_user_is_finished()
-    
+
+
 print('Good-Bye for now.')
