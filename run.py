@@ -48,12 +48,26 @@ def get_operation_choice():
     return user_selection
 
 
+def get_numbers_from_user():
+    num1 = get_integer_input('Input the first number: ')
+    num2 = get_integer_input('Input the second number: ')
+    return num1, num2
+
+
+def get_interger_input(message):
+    value_as_string = input(message)
+    while not value_as_string.isnumeric():
+        print('The input must be an integer')
+        value_as_string = input(message)
+    return int(value_as_string)
+
+
 finished = False
 
 while not finished:
     result = 0
     menu_choice = get_operation_choice()
-    # get the numbers from user
+    n1, n2 = get_numbers_from_user()
     # select the operation
     print('Result', result)
     print('====================')
