@@ -10,24 +10,20 @@ def multiply(x,y):
 def divide(x,y):
     return x / y
 
+
 def check_if_user_is_finished():
     """
-    Checks if the user wishes to end to program or not.
+    Checks if the user wishes to end the program or not.
     Performs validation on the user input.
     """
-    ok_to_finish = True
-    user_input_accepted = False
-    
-    while not user_input_accepted:
+    while True:
         user_input = input('Are you finished using the calculator? (y/n): ')
-        if user_input == 'y':
-            user_input_accepted = True
-        elif user_input == 'n':
-            ok_to_finish = False
+        if user_input.lower() == 'y':
+            return True  # User wants to finish, so we stop.
+        elif user_input.lower() == 'n':
+            return False  # User wants to continue, so we don't stop.
         else:
             print('Response must be (y/n), please try again.')
-            
-    return ok_to_finish
 
 
 def get_operation_choice():
@@ -54,7 +50,7 @@ def get_numbers_from_user():
     return num1, num2
 
 
-def get_interger_input(message):
+def get_integer_input(message):
     value_as_string = input(message)
     while not value_as_string.isnumeric():
         print('The input must be an integer')
@@ -68,9 +64,16 @@ while not finished:
     result = 0
     menu_choice = get_operation_choice()
     n1, n2 = get_numbers_from_user()
-    # select the operation
-    print('Result', result)
+    if menu_choice == '1':
+        result = add(n1, n2)
+    elif menu_choice == '2':
+        result = subtract(n1, n2)
+    elif menu_choice == '3':
+        result = multiply(n1, n2)
+    elif menu_choice == '4':
+        result = divide(n1, n2)
+    print('Result:', result)
     print('====================')
     finished = check_if_user_is_finished()
     
-print('Bye')
+print('Good-Bye for now.')
